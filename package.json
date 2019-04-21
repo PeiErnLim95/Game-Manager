@@ -1,0 +1,25 @@
+{
+  "name": "game-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon ./server/app.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "P.E Lim",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.1.0",
+    "create-react-app": "^2.1.8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}
