@@ -1,9 +1,9 @@
 //Import/Require needed packages
 const express = require('express');
 const mongoose = require('mongoose');
-const graphqlHTTP = require('express-graphql');
 const cors = require('cors');
-const schema = require('./schema/schema');
+const schema = require('./graphqlSchema/schema');
+const { ApolloServer } = require('apollo-server-express');
 
 //Create Express App
 const app = express();
@@ -18,12 +18,12 @@ mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true })
             console.log(`Error connect database: ${error}`);
         });
 
+//Allow cross-origin resource sharing
 app.use(cors());
-app.use('/graphql', graphqlHTTP({
-        schema,
-        graphiql: true
-    })
-);
+
+//Create Apollo Server
+const server = new ApolloServer({ schema });
+server.applyMiddleware({ app });
 
 //Listen to port
 const port = process.env.PORT || 4000;
