@@ -9,8 +9,8 @@ const AddUserForm = () => {
     const addUser = useMutation(addUserQ);
 
     return(
-        <div>
-            <form id="add-user">
+        <div id="add-user">
+            <form>
                 <div className="field">
                     <label htmlFor="name">User Name</label>
                     <input type="text" id="name" onChange={ (event) => { name = event.target.value } }/>

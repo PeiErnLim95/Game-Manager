@@ -5,16 +5,28 @@ const User = require('../model/user');
 const resolver = {
     Query: {
         users: () => {
-            return User.find({});
+            return User.find({})
+                .catch((error) => {
+                    console.log(`Error Occur: ${ error }`);
+                })
         },
-        user: (root, { id }) => {
-            return User.findById(id);
+        user: (root, { name }) => {
+            return User.findOne({ name: name })
+                .catch((error) => {
+                console.log(`Error Occur: ${ error }`);
+            })
         },
         games: () => {
-            return Game.find({});
+            return Game.find({})
+                .catch((error) => {
+                console.log(`Error Occur: ${ error }`);
+            })
         },
         game: (root, { id }) => {
-            return Game.findById(id);
+            return Game.findById(id)
+                .catch((error) => {
+                    console.log(`Error Occur: ${ error }`);
+                })
         }
     },
     Mutation: {

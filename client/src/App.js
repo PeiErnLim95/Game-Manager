@@ -6,6 +6,7 @@ import { ApolloProvider as ApolloProviderHooks } from "react-apollo-hooks";
 import UserList from './component/displayUser';
 import AddUserForm from './component/addUser';
 import NavBar from './component/navBar';
+import SearchUserForm from './component/searchUser';
 
 //Create the Apollo Client
 const client = new ApolloClient({
@@ -23,6 +24,7 @@ class App extends Component {
                   <h3>All Users</h3>
                   <UserList />
                   <AddUserForm/>
+                  <SearchUserForm/>
               </div>
           </ApolloProviderHooks>
       </ApolloProvider>
